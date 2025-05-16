@@ -1,0 +1,78 @@
+package com.fisiunmsm.ayudadoc.cursos.domain.model;
+
+import reactor.core.publisher.Mono;
+
+public class CursoDTO  {
+
+    private Long id;
+
+    private String codigo;
+    private String nombre;
+    private String departamentoNombre; 
+    private String seccion;
+    private String codigoPeriodo;
+
+
+    public CursoDTO()  {
+    }
+
+    public CursoDTO(Long id, String codigo, String nombre, String departamentoNombre, String seccion, String codigoPeriodo) {
+        this.id = id;
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.departamentoNombre = departamentoNombre;
+        this.seccion = seccion;
+        this.codigoPeriodo = codigoPeriodo;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDepartamentoNombre() {
+        return departamentoNombre;
+    }
+
+    public void setDepartamentoNombre(String departamentoNombre) {
+        this.departamentoNombre = departamentoNombre;
+    }
+
+    public String getSeccion() {
+        return seccion;
+    }
+
+    public void setSeccion(String seccion) {
+        this.seccion = seccion;
+    }
+
+    public String getCodigoPeriodo() {
+        return codigoPeriodo;
+    }
+
+    public void setCodigoPeriodo(String codigoPeriodo) {
+        this.codigoPeriodo = codigoPeriodo;
+    }
+   
+    
+    
+}
