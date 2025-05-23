@@ -18,7 +18,7 @@ public class DepartamentoService {
     }
     
     public Flux<Departamento> obtenerDepartamento(){
-        return departamentoRepository.queryDepartamento()
+        return departamentoRepository.findAll()
                 .map(this::convertirADepartamento);
         
     }

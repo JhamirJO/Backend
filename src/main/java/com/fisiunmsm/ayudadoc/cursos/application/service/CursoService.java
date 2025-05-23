@@ -41,7 +41,7 @@ public class CursoService {
     }
     
     public Flux<CursoDTO> obtenerCursosLista() {
-        String query = "SELECT c.id, c.codigo, c.nombre, d.codigo as departamentoNombre, c.seccion, "
+        String query = "SELECT c.id, c.codigo, c.nombre, d.codigo as departamentoNombre, "
                 + "p.codigo as codigoPeriodo FROM curso c "
                 + "INNER JOIN departamento d ON c.departamentoid = d.id "
                 + "INNER JOIN periodoacademico p ON c.periodoacademicoid = p.id "
@@ -54,7 +54,6 @@ public class CursoService {
                     dto.setCodigo(row.get("codigo", String.class));
                     dto.setNombre(row.get("nombre", String.class));
                     dto.setDepartamentoNombre(row.get("departamentoNombre", String.class));
-                    dto.setSeccion(row.get("seccion", String.class));
                     dto.setCodigoPeriodo(row.get("codigoPeriodo", String.class));
                     return dto;
                 })

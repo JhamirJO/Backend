@@ -9,19 +9,17 @@ public class CursoDTO  {
     private String codigo;
     private String nombre;
     private String departamentoNombre; 
-    private String seccion;
     private String codigoPeriodo;
 
 
     public CursoDTO()  {
     }
 
-    public CursoDTO(Long id, String codigo, String nombre, String departamentoNombre, String seccion, String codigoPeriodo) {
+    public CursoDTO(Long id, String codigo, String nombre, String departamentoNombre, String codigoPeriodo) {
         this.id = id;
         this.codigo = codigo;
         this.nombre = nombre;
         this.departamentoNombre = departamentoNombre;
-        this.seccion = seccion;
         this.codigoPeriodo = codigoPeriodo;
     }
 
@@ -55,14 +53,6 @@ public class CursoDTO  {
 
     public void setDepartamentoNombre(String departamentoNombre) {
         this.departamentoNombre = departamentoNombre;
-    }
-
-    public String getSeccion() {
-        return seccion;
-    }
-
-    public void setSeccion(String seccion) {
-        this.seccion = seccion;
     }
 
     public String getCodigoPeriodo() {

@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fisiunmsm.ayudadoc.cursos.application.service.CursoService;
 import com.fisiunmsm.ayudadoc.cursos.domain.model.Curso;
 import com.fisiunmsm.ayudadoc.cursos.domain.model.CursoDTO;
-import com.fisiunmsm.ayudadoc.cursos.infraestructure.mapper.CursoTable;
-import java.util.Map;
+
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

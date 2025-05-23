@@ -15,7 +15,6 @@ public class CursoTable {
 
     private String codigo;
     private String nombre;
-    private String seccion;
     private String tipo;
     private Long numhorasteoria;
     private Long numhoraspractica;
@@ -37,7 +36,6 @@ public class CursoTable {
     public CursoTable(Long id, 
                       String codigo, 
                       String nombre, 
-                      String seccion,
                       String tipo, 
                       Long numhorasteoria, 
                       Long numhoraspractica, 
@@ -56,7 +54,6 @@ public class CursoTable {
         this.id = id;
         this.codigo = codigo;
         this.nombre = nombre;
-        this.seccion = seccion;
         this.tipo = tipo;
         this.numhorasteoria  = numhorasteoria;
         this.numhoraspractica = numhoraspractica;
@@ -75,7 +72,7 @@ public class CursoTable {
 
     public static CursoTable fromDomainModel( Curso curso ) {
         
-        return new CursoTable( curso.getId(), curso.getCodigo(), curso.getNombre(), curso.getSeccion(), curso.getTipo()
+        return new CursoTable( curso.getId(), curso.getCodigo(), curso.getNombre(), curso.getTipo()
                                 , curso.getNumHorasTeoria(), curso.getNumHorasPractica(), curso.getNumHorasLaboratorio()
                                 , curso.getNumCreditos(), curso.getCiclo(), curso.getPlanEstudiosId(), curso.getPeriodoAcademicoId()
                                 , curso.getInstitucionid(), curso.getDepartamentoid(), curso.getEstado()
@@ -84,7 +81,7 @@ public class CursoTable {
 
     public Curso toDomainModel()  {
 
-        return new Curso( id, codigo, nombre, seccion, tipo, numhorasteoria, numhoraspractica, numhoraslaboratorio, numcreditos, 
+        return new Curso( id, codigo, nombre, tipo, numhorasteoria, numhoraspractica, numhoraslaboratorio, numcreditos, 
                           ciclo, planestudiosid, periodoacademicoid, institucionid, departamentoid, estado,
                           sumilla, modalidad, etiquetas );
     }
@@ -117,15 +114,7 @@ public class CursoTable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public String getSeccion() {
-        return seccion;
-    }
 
-    public void setSeccion(String seccion) {
-        this.seccion = seccion;
-    }
-        
     public String getTipo() {
         return tipo;
     }

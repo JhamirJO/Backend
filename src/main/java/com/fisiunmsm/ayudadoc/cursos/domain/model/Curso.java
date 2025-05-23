@@ -6,7 +6,6 @@ public class Curso  {
 
     private String codigo;
     private String nombre;
-    private String seccion;
     private String tipo;
     private Long numHorasTeoria;
     private Long numHorasPractica;
@@ -36,7 +35,7 @@ public class Curso  {
         
     }
 
-    public Curso(Long id, String codigo, String nombre, String seccion, String tipo,
+    public Curso(Long id, String codigo, String nombre, String tipo,
                  Long numHorasTeoria, Long numHorasPractica, Long numHorasLaboratorio, Long numCreditos,
                  String ciclo, Long planEstudiosId, Long periodoAcademicoId, Long institucionid, Long departamentoid,
                  String estado, String sumilla, String modalidad, String etiquetas  ) {
@@ -44,7 +43,6 @@ public class Curso  {
         this.id = id;                    
         this.codigo = codigo;
         this.nombre = nombre;
-        this.seccion = seccion;
         this.tipo = tipo;
         this.numHorasTeoria = numHorasTeoria;
         this.numHorasPractica = numHorasPractica;
@@ -80,13 +78,6 @@ public class Curso  {
         this.nombre = nombre;
     }
     
-    public String getSeccion() {
-        return seccion;
-    }
-
-    public void setSeccion(String seccion) {
-        this.seccion = seccion;
-    }
     public String getTipo() {
         return tipo;
     }
@@ -206,7 +197,6 @@ public class Curso  {
         Curso newCurso = new Curso();
         newCurso.setCodigo(codigo);
         newCurso.setNombre(nombre);
-        newCurso.setSeccion(seccion);
         newCurso.setTipo(tipo);
         newCurso.setNumHorasTeoria(numHorasTeoria);
         newCurso.setNumHorasPractica(numHorasPractica);
