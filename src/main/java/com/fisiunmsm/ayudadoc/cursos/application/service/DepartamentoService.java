@@ -19,15 +19,7 @@ public class DepartamentoService {
     
     public Flux<Departamento> obtenerDepartamento(){
         return departamentoRepository.findAll()
-                .map(this::convertirADepartamento);
+                .map(DepartamentoTable::toDomainModel);
         
-    }
-    
-    private Departamento convertirADepartamento(DepartamentoTable table){
-        return new Departamento(
-            table.getId(),
-            table.getCodigo()
-        );
-            
     }
 }

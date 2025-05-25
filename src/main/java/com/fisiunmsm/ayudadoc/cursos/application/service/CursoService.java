@@ -4,16 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.fisiunmsm.ayudadoc.cursos.application.error.CursoNoEncontradoException;
 import com.fisiunmsm.ayudadoc.cursos.domain.model.Curso;
-import com.fisiunmsm.ayudadoc.cursos.domain.model.CursoDTO;
+import com.fisiunmsm.ayudadoc.cursos.domain.model.CursoCard;
 import com.fisiunmsm.ayudadoc.cursos.infraestructure.mapper.CursoTable;
 import com.fisiunmsm.ayudadoc.cursos.infraestructure.repository.CursoRepository;
-import java.util.Map;
 import org.springframework.r2dbc.core.DatabaseClient;
 //import com.fisiunmsm.ayudadoc.shared.config.Constantes;
 //import com.fisiunmsm.ayudadoc.shared.helper.AyudocLog;
@@ -24,10 +22,9 @@ import reactor.core.publisher.Mono;
 @Service
 public class CursoService {
     private static final Logger LOGGER = Logger.getLogger(CursoService.class.getName());
+    
     @Autowired
     private CursoRepository cursoRepository;
-
-    @Autowired
     private MessageSource mensajes;
 
     public Flux<Curso> obtenerCursosActivos() {
@@ -40,7 +37,7 @@ public class CursoService {
         this.databaseClient = databaseClient;
     }
     
-    public Flux<CursoDTO> obtenerCursosLista() {
+    public Flux<CursoCard> obtenerCursosCard() {
         String query = "SELECT c.id, c.codigo, c.nombre, d.codigo as departamentoNombre, "
                 + "p.codigo as codigoPeriodo FROM curso c "
                 + "INNER JOIN departamento d ON c.departamentoid = d.id "
@@ -49,7 +46,7 @@ public class CursoService {
 
         return databaseClient.sql(query)
                 .map((row, metadata) -> {
-                    CursoDTO dto = new CursoDTO();
+                    CursoCard dto = new CursoCard();
                     dto.setId(row.get("id", Long.class));
                     dto.setCodigo(row.get("codigo", String.class));
                     dto.setNombre(row.get("nombre", String.class));

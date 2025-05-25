@@ -1,8 +1,7 @@
 package com.fisiunmsm.ayudadoc.cursos.domain.model;
 
-import reactor.core.publisher.Mono;
 
-public class CursoDTO  {
+public class CursoCard  {
 
     private Long id;
 
@@ -12,10 +11,10 @@ public class CursoDTO  {
     private String codigoPeriodo;
 
 
-    public CursoDTO()  {
+    public CursoCard()  {
     }
 
-    public CursoDTO(Long id, String codigo, String nombre, String departamentoNombre, String codigoPeriodo) {
+    public CursoCard(Long id, String codigo, String nombre, String departamentoNombre, String codigoPeriodo) {
         this.id = id;
         this.codigo = codigo;
         this.nombre = nombre;
@@ -62,7 +61,5 @@ public class CursoDTO  {
     public void setCodigoPeriodo(String codigoPeriodo) {
         this.codigoPeriodo = codigoPeriodo;
     }
-   
-    
-    
+ 
 }

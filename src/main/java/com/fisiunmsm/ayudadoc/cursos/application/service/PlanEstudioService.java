@@ -21,20 +21,6 @@ public class PlanEstudioService {
     // Método para obtener planes de estudio activos
     public Flux<PlanEstudio> obtenerPlanEstudioActivos() {
         return planestudioRepository.queryPlanEstudioActivo()
-                .map(this::convertirAPlanEstudio); // Conversión directa a PlanEstudio
-    }
-
-    // Método privado para convertir PlanEstudioTable a PlanEstudio
-    private PlanEstudio convertirAPlanEstudio(PlanEstudioTable table) {
-        return new PlanEstudio(
-                table.getId(),
-                table.getCodigo(),
-                table.getDescripcion(),
-                table.getVigencia(),
-                table.getInstitucionid(),
-                table.getDepartamentoid(),
-                table.getEstado(),
-                table.getCarreraid()
-        );
+                .map(PlanEstudioTable::toDomainModel);
     }
 }

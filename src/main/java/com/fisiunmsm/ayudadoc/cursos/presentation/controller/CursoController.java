@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fisiunmsm.ayudadoc.cursos.application.service.CursoService;
 import com.fisiunmsm.ayudadoc.cursos.domain.model.Curso;
-import com.fisiunmsm.ayudadoc.cursos.domain.model.CursoDTO;
+import com.fisiunmsm.ayudadoc.cursos.domain.model.CursoCard;
 
 
 import reactor.core.publisher.Flux;
@@ -49,8 +49,8 @@ public class CursoController {
     }
     
     @GetMapping("/cursos-card")
-    public Flux<CursoDTO> getCursosLista() {
-        return cursoService.obtenerCursosLista();
+    public Flux<CursoCard> getCursosCard() {
+        return cursoService.obtenerCursosCard();
     }
     
 }

@@ -5,9 +5,7 @@ package com.fisiunmsm.ayudadoc.cursos.domain.model;
 public class Departamento {
     private Long id;
     private String codigo;
-    
-    
-    
+
     public Departamento(){
         
     }
@@ -33,5 +31,4 @@ public class Departamento {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    
 }

@@ -23,6 +23,13 @@ public class DepartamentoTable {
 
     }
     
+    public static DepartamentoTable fromDomainModel(Departamento departamento){
+        return new DepartamentoTable(
+            departamento.getId(),
+            departamento.getCodigo()
+        );
+    }
+        
     // Método para convertir a modelo de dominio
     public Departamento toDomainModel() {
         return new Departamento(

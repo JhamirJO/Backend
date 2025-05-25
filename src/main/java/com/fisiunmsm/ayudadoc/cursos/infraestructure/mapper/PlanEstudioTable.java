@@ -34,6 +34,19 @@ public class PlanEstudioTable {
         this.carreraid = carreraid;
     }
     
+    public static PlanEstudioTable fromDomainModel(PlanEstudio planestudio){
+        return new PlanEstudioTable(
+                planestudio.getId(),
+                planestudio.getCodigo(),
+                planestudio.getDescripcion(),
+                planestudio.getVigencia(),
+                planestudio.getInstitucionId(),
+                planestudio.getDepartamentoId(),
+                planestudio.getEstado(),
+                planestudio.getCarreraId()
+        );
+    }
+    
     // Método para convertir a modelo de dominio
     public PlanEstudio toDomainModel() {
         return new PlanEstudio(
