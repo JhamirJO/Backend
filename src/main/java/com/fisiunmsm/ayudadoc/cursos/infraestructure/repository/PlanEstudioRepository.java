@@ -11,7 +11,7 @@ public interface PlanEstudioRepository extends R2dbcRepository<PlanEstudioTable,
     // Búsqueda por código específico
     Mono<PlanEstudioTable> findByCodigo(String codigo);
 
-    // Consulta personalizada para obtener los planes de estudio activos (Estado = '1')
+    
     @Query("SELECT * FROM planestudios WHERE estado = '1' ORDER BY descripcion")
     Flux<PlanEstudioTable> queryPlanEstudioActivo();
 }

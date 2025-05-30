@@ -11,7 +11,7 @@ import com.fisiunmsm.ayudadoc.cursos.application.error.CursoNoEncontradoExceptio
 import com.fisiunmsm.ayudadoc.cursos.domain.model.Curso;
 import com.fisiunmsm.ayudadoc.cursos.domain.model.CursoCard;
 import com.fisiunmsm.ayudadoc.cursos.infraestructure.mapper.CursoTable;
-import com.fisiunmsm.ayudadoc.cursos.infraestructure.repository.CursoRepository;
+import com.fisiunmsm.ayudadoc.cursos.infraestructure.repository.*;
 import org.springframework.r2dbc.core.DatabaseClient;
 //import com.fisiunmsm.ayudadoc.shared.config.Constantes;
 //import com.fisiunmsm.ayudadoc.shared.helper.AyudocLog;
@@ -22,19 +22,31 @@ import reactor.core.publisher.Mono;
 @Service
 public class CursoService {
     private static final Logger LOGGER = Logger.getLogger(CursoService.class.getName());
-    
+
     @Autowired
     private CursoRepository cursoRepository;
+    @Autowired
     private MessageSource mensajes;
-
-    public Flux<Curso> obtenerCursosActivos() {
-        return cursoRepository.queryCursosActivos().flatMap(CursoTable::toMono);
-    }
+    @Autowired
+    private DatabaseClient databaseClient;
+    @Autowired
+    private AlumnoGrupoRepository alumnoGrupoRepository;
+    @Autowired
+    private AlumnoCursoRepository alumnoCursoRepository;
+    @Autowired
+    private ComponenteCompetenciaRepository componenteCompetenciaRepository;
+    @Autowired
+    private CursoCompetenciaRepository cursoCompetenciaRepository;
+    @Autowired
+    private CursoComponenteRepository cursoComponenteRepository;
     
-    private final DatabaseClient databaseClient;
-
-    public CursoService(DatabaseClient databaseClient) {
-        this.databaseClient = databaseClient;
+    public Mono<Void> eliminarCurso(Long cursoId) {
+        return alumnoGrupoRepository.deleteByCursoId(cursoId)
+            .then(alumnoCursoRepository.deleteByCursoId(cursoId))
+            .then(componenteCompetenciaRepository.deleteByCursoId(cursoId))
+            .then(cursoCompetenciaRepository.deleteByCursoId(cursoId))
+            .then(cursoComponenteRepository.deleteByCursoId(cursoId))
+            .then(cursoRepository.deleteByIdCustom(cursoId));
     }
     
     public Flux<CursoCard> obtenerCursosCard() {
@@ -58,7 +70,10 @@ public class CursoService {
     }
     
     
-    // Método en el servicio para obtener los cursos de un ciclo específico
+    public Flux<Curso> obtenerCursosActivos() {
+        return cursoRepository.queryCursosActivos().flatMap(CursoTable::toMono);
+    }
+
 
     public Mono<Curso> crearCurso( Curso curso ) {
         System.out.println(1);

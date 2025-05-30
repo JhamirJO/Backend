@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fisiunmsm.ayudadoc.cursos.application.service.CursoService;
 import com.fisiunmsm.ayudadoc.cursos.domain.model.Curso;
 import com.fisiunmsm.ayudadoc.cursos.domain.model.CursoCard;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 
 import reactor.core.publisher.Flux;
@@ -53,4 +54,9 @@ public class CursoController {
         return cursoService.obtenerCursosCard();
     }
     
-}
+    @DeleteMapping("/{id}/eliminar")
+    public Mono<Void> eliminarCurso(@PathVariable("id") Long cursoId) {
+        return cursoService.eliminarCurso(cursoId);
+    }
+
+}   
