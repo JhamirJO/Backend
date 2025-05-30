@@ -53,10 +53,10 @@ public class CursoController {
     public Flux<CursoCard> getCursosCard() {
         return cursoService.obtenerCursosCard();
     }
-    
+    /*
     @DeleteMapping("/{id}/eliminar")
     public Mono<Void> eliminarCurso(@PathVariable("id") Long cursoId) {
         return cursoService.eliminarCurso(cursoId);
-    }
+    }*/
 
 }   
