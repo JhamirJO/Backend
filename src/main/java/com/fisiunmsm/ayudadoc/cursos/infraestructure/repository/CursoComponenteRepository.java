@@ -1,4 +1,4 @@
-
+/*
 package com.fisiunmsm.ayudadoc.cursos.infraestructure.repository;
 
 import com.fisiunmsm.ayudadoc.cursos.infraestructure.mapper.CursoComponenteTable;
@@ -12,3 +12,4 @@ public interface CursoComponenteRepository extends R2dbcRepository<CursoComponen
     Mono<Void> deleteByCursoId(Long cursoId);
     
 }
+*/
