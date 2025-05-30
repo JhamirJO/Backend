@@ -1,4 +1,4 @@
-
+/*
 package com.fisiunmsm.ayudadoc.cursos.infraestructure.repository;
 
 import com.fisiunmsm.ayudadoc.cursos.infraestructure.mapper.AlumnoGrupoTable;
@@ -17,4 +17,4 @@ public interface AlumnoGrupoRepository extends R2dbcRepository<AlumnoGrupoTable,
         )
     """)
     Mono<Void> deleteByCursoId(Long cursoId);
-}
+}*/
