@@ -29,6 +29,7 @@ public class CursoService {
     private MessageSource mensajes;
     @Autowired
     private DatabaseClient databaseClient;
+    /*
     @Autowired
     private AlumnoGrupoRepository alumnoGrupoRepository;
     @Autowired
@@ -48,7 +49,7 @@ public class CursoService {
             .then(cursoComponenteRepository.deleteByCursoId(cursoId))
             .then(cursoRepository.deleteByIdCustom(cursoId));
     }
-    
+    */
     public Flux<CursoCard> obtenerCursosCard() {
         String query = "SELECT c.id, c.codigo, c.nombre, d.codigo as departamentoNombre, "
                 + "p.codigo as codigoPeriodo FROM curso c "
